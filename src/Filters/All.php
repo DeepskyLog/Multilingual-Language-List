@@ -1,6 +1,6 @@
 <?php
 
-namespace PeterColes\Languages\Filters;
+namespace DeepskyLog\Languages\Filters;
 
 use Illuminate\Support\Collection;
 

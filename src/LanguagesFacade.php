@@ -1,6 +1,6 @@
 <?php
 
-namespace PeterColes\Languages;
+namespace DeepskyLog\Languages;
 
 use Illuminate\Support\Facades\Facade;
 

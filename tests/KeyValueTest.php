@@ -8,7 +8,7 @@ class KeyValueTest extends TestCase
 
     public function setUp(): void
     {
-        $this->maker = new PeterColes\Languages\Maker;
+        $this->maker = new DeepskyLog\Languages\Maker;
     }
 
     public function testDefaultSettings()

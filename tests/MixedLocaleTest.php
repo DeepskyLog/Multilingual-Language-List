@@ -5,10 +5,10 @@ use PHPUnit\Framework\TestCase;
 class MixedLocaleTest extends TestCase
 {
     protected $maker;
-        
+
     public function setUp(): void
     {
-        $this->maker = new PeterColes\Languages\Maker;
+        $this->maker = new DeepskyLog\Languages\Maker;
     }
 
     public function testLookup()

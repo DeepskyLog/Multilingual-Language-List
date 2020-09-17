@@ -1,6 +1,6 @@
 <?php
 
-namespace PeterColes\Languages;
+namespace DeepskyLog\Languages;
 
 class Maker
 {
@@ -24,9 +24,9 @@ class Maker
         $key = $key ?: 'key';
         $value = $value ?: 'value';
 
-        return $this->languages->transform(function($item, $index) use ($key, $value) {
-            return (object) [ $key => $index, $value =>$item ];
-        })->values(); 
+        return $this->languages->transform(function ($item, $index) use ($key, $value) {
+            return (object) [$key => $index, $value => $item];
+        })->values();
     }
 
     protected function prep($filter, $locale)
@@ -41,31 +41,31 @@ class Maker
 
     protected function getMixedData($filter)
     {
-        $languages = [ ];
+        $languages = [];
         foreach ($filter as $locale) {
-            $language = require realpath(__DIR__."/../data/$locale.php");
-            $languages[ $locale ] = $language[ $locale ];
+            $language = require realpath(__DIR__ . "/../data/$locale.php");
+            $languages[$locale] = $language[$locale];
         }
 
-        $this->languages = collect($languages);             
+        $this->languages = collect($languages);
     }
 
     protected function getData($locale)
     {
         $locale = $locale ?: 'en';
 
-        $this->languages = collect(require realpath(__DIR__."/../data/$locale.php"));             
+        $this->languages = collect(require realpath(__DIR__ . "/../data/$locale.php"));
     }
 
     protected function filter($filter)
     {
         if (is_array($filter)) {
-            $class = '\\PeterColes\\Languages\\Filters\\Custom';
-            $this->languages = call_user_func([ new $class, 'filter' ], $this->languages, $filter);
+            $class = '\\DeepskyLog\\Languages\\Filters\\Custom';
+            $this->languages = call_user_func([new $class, 'filter'], $this->languages, $filter);
         } else {
             $filter = $filter ?: 'major';
-            $class = '\\PeterColes\\Languages\\Filters\\'.ucfirst($filter);
-            $this->languages = call_user_func([ new $class, 'filter' ], $this->languages);
+            $class = '\\DeepskyLog\\Languages\\Filters\\' . ucfirst($filter);
+            $this->languages = call_user_func([new $class, 'filter'], $this->languages);
         }
     }
 }

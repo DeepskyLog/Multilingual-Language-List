@@ -19,7 +19,7 @@ Data can be returned as a lookup array or an array of key-value pairs, where bot
 At the command line run
 
 ```shell
-composer require petercoles/multilingual-language-list
+composer require deepskylog/multilingual-language-list
 ```
 
 If you're using Laravel 5.5 or later (and haven't disabled package discovery), you're done. Move on to the usage section below.
@@ -29,7 +29,7 @@ If you're using an older version of Laravel, then add the service provider to th
 ```php
     'providers' => [
         // ...
-        PeterColes\Languages\LanguagesServiceProvider::class,
+        DeepskyLog\Languages\LanguagesServiceProvider::class,
         // ...
     ],
 ```
@@ -37,7 +37,7 @@ If you're using an older version of Laravel, then add the service provider to th
 An optional facade is also available and can be enabled by adding the following to you config/app.php's aliases array
 
 ```php
-'Languages' => PeterColes\Languages\LanguagesFacade::class,
+'Languages' => DeepskyLog\Languages\LanguagesFacade::class,
 ```
 
 ## Usage

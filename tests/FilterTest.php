@@ -5,10 +5,10 @@ use PHPUnit\Framework\TestCase;
 class FilterTest extends TestCase
 {
     protected $maker;
-        
+
     public function setUp(): void
     {
-        $this->maker = new PeterColes\Languages\Maker;
+        $this->maker = new DeepskyLog\Languages\Maker;
     }
 
     public function testNullFilter()
@@ -58,7 +58,6 @@ class FilterTest extends TestCase
     public function testArrayFilter()
     {
         $lookup = $this->maker->lookup(['en', 'fr']);
-
 
         $this->assertArrayHasKey('en', $lookup);
         $this->assertArrayHasKey('fr', $lookup);
